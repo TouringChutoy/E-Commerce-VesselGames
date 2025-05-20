@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito - VesselGames</title>
+  <link rel="stylesheet" href="./css/carrito.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./assets/images/Logo DiegoRam.png" alt="VesselGames Logo" />
+    </div>
+    <nav>
+      <a href="catalog.html">Catálogo</a>
+      <a href="cart.html">Carrito</a>
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <a href="#" onclick="logout()">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="carrito">
+      <h1>Tu Carrito</h1>
+      <div class="carrito-items">
+        <div class="item">
+          <img src="https://via.placeholder.com/100x130" alt="Cyber Legends">
+          <div class="info">
+            <h2>Cyber Legends</h2>
+            <p>$59.99</p>
+            <button class="remove">Eliminar</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="https://via.placeholder.com/100x130" alt="Quantum Drift">
+          <div class="info">
+            <h2>Quantum Drift</h2>
+            <p>$49.99</p>
+            <button class="remove">Eliminar</button>
+          </div>
+        </div>
+        <!-- Puedes añadir más productos aquí -->
+      </div>
+
+      <div class="resumen">
+        <p>Total: <span>$109.98</span></p>
+        <button class="comprar">Finalizar Compra</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 VesselGames. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function logout() {
+      localStorage.setItem("loggedIn", "false");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

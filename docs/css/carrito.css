@@ -1,0 +1,146 @@
+/* Estilo minimalista y futurista para carrito */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #0b0c10;
+  color: #c5c6c7;
+}
+
+header {
+  background: #1f2833;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #45a29e;
+}
+
+.logo img {
+  height: 50px;
+  filter: drop-shadow(0 0 5px #66fcf1);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #c5c6c7;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #66fcf1;
+}
+
+.carrito-icon i {
+  font-size: 1.2rem;
+  color: #66fcf1;
+}
+
+main {
+  padding: 2rem;
+}
+
+.carrito h1 {
+  text-align: center;
+  color: #66fcf1;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.carrito-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background: #1f2833;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #45a29e33;
+}
+
+.item img {
+  width: 100px;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.item .info {
+  flex-grow: 1;
+}
+
+.item h2 {
+  color: #c5c6c7;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.item p {
+  color: #66fcf1;
+  margin-bottom: 0.5rem;
+}
+
+.remove {
+  background: #c0392b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.remove:hover {
+  background: #e74c3c;
+}
+
+.resumen {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.resumen p {
+  font-size: 1.5rem;
+  color: #66fcf1;
+  margin-bottom: 1rem;
+}
+
+.comprar {
+  background: #45a29e;
+  color: #0b0c10;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.comprar:hover {
+  background: #66fcf1;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1f2833;
+  color: #45a29e;
+  margin-top: 3rem;
+}
