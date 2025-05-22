@@ -31,16 +31,17 @@
     </section>
   </main>
 
-  <script>
-    function login(e) {
-      e.preventDefault();
-      localStorage.setItem("loggedIn", "true");
-      window.location.href = "catalogo.html";
-    }
+<script type="module">
+  import { redirectIfLoggedIn } from './js/protectLogin.js';
+  import { manageSessionUI } from './js/session.js';
+  import { login, loginConGoogle } from './js/login.js';
 
-    function loginConGoogle() {
-      alert("Función de Google pendiente de implementar.");
-    }
-  </script>
+  window.login = login;
+  window.loginConGoogle = loginConGoogle;
+
+  manageSessionUI(false);
+  redirectIfLoggedIn();
+</script>
+
 </body>
 </html>

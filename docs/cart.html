@@ -13,13 +13,13 @@
     <div class="logo">
       <img src="./assets/images/Logo DiegoRam.png" alt="VesselGames Logo" />
     </div>
-    <nav>
-      <a href="catalog.html">Catálogo</a>
-      <a href="cart.html">Carrito</a>
-        <i class="fas fa-shopping-cart"></i>
-      </a>
-      <a href="#" onclick="logout()">Cerrar sesión</a>
-    </nav>
+<nav id="nav-menu">
+  <a href="index.html">Inicio</a>
+  <a href="login.html" id="login-link">Iniciar Sesión</a>
+  <a href="register.html" id="register-link">Registrarse</a>
+  <a href="#" id="logout-btn" class="hidden">Cerrar Sesión</a>
+</nav>
+
   </header>
 
   <main>
@@ -56,11 +56,9 @@
     <p>&copy; 2025 VesselGames. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
-    function logout() {
-      localStorage.setItem("loggedIn", "false");
-      window.location.href = "index.html";
-    }
-  </script>
+<script type="module">
+  import { manageSessionUI } from './js/session.js';
+  manageSessionUI(true);
+</script>
 </body>
 </html>

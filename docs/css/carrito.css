@@ -144,3 +144,7 @@ footer {
   color: #45a29e;
   margin-top: 3rem;
 }
+
+.hidden {
+  display: none !important;
+}

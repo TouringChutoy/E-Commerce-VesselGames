@@ -10,45 +10,50 @@
 </head>
 <body>
   <header>
-  <div class="logo">
-    <img src="./assets/images/Logo DiegoRam.png" alt="VesselGames">
-  </div>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="catalog.html">Catálogo</a>
-      <a href="cart.html">Carrito</a>
-      <a href="login.html">Login</a>
-    </nav>
+    <div class="logo">
+      <img src="./assets/images/Logo DiegoRam.png" alt="Logo VesselGames" />
+    </div>
+<nav id="nav-menu">
+  <a href="login.html" id="login-link">Iniciar Sesión</a>
+  <a href="register.html" id="register-link">Registrarse</a>
+  <a href="#" id="logout-btn" style="display: none;">Cerrar Sesión</a>
+</nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Bienvenido a GameStore</h1>
-      <p>Explora los mejores videojuegos del universo digital</p>
-      <a href="catalog.html" class="btn">Ver Catálogo</a>
+      <h1>Bienvenido a VesselGames</h1>
+      <p>Tu tienda futurista de videojuegos</p>
+      <a id="catalog-btn" href="#" class="btn">Explorar Catálogo</a>
     </section>
 
     <section class="destacados">
       <h2>Juegos Destacados</h2>
       <div class="grid">
         <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Juego 1">
-          <h3>Cyber Legends</h3>
+          <img src="./assets/images/LetsAim.png" alt="Juego 1" />
+          <h3>Let's Aim To The Heavens</h3>
         </div>
         <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Juego 2">
-          <h3>Neon Wars</h3>
+          <img src="./assets/images/ElBosqueDeLasLeyendas.png" alt="Juego 2" />
+          <h3>El Bosque De Las Leyendas</h3>
         </div>
         <div class="card">
-          <img src="https://via.placeholder.com/200x250" alt="Juego 3">
-          <h3>Quantum Drift</h3>
+          <img src="./assets/images/TheLostRooms.png" alt="Juego 3" />
+          <h3>The Lost Rooms</h3>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 VesselGames. Todos los derechos reservados.</p>
+    &copy; 2025 VesselGames. Todos los derechos reservados.
   </footer>
+
+  <script type="module" src="./js/index.js"></script>
+  <script type="module">
+  import { manageSessionUI } from './js/session.js';
+  manageSessionUI(false); // no redirige, solo muestra botones según sesión
+</script>
 </body>
 </html>

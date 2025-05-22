@@ -13,16 +13,16 @@
       <h1>Crear Cuenta</h1>
 
       <div class="registro-box">
-        <form onsubmit="registrar(event)">
-          <input type="text" placeholder="Nombre completo" required />
-          <input type="email" placeholder="Correo electrónico" required />
-          <input type="password" placeholder="Contraseña" required />
+        <form id="register-form">
+          <input type="text" id="name" placeholder="Nombre completo" required />
+          <input type="email" id="email" placeholder="Correo electrónico" required />
+          <input type="password" id="password" placeholder="Contraseña" required />
           <button type="submit">Registrarse</button>
         </form>
 
         <div class="separador">o</div>
 
-        <button class="google-btn" onclick="registroConGoogle()">
+        <button class="google-btn" id="google-login">
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google icon" />
           Registrarse con Google
         </button>
@@ -32,17 +32,11 @@
     </section>
   </main>
 
-  <script>
-    function registrar(e) {
-      e.preventDefault();
-      alert("Cuenta registrada exitosamente.");
-      localStorage.setItem("loggedIn", "true");
-      window.location.href = "catalogo.html";
-    }
-
-    function registroConGoogle() {
-      alert("Función de registro con Google pendiente de implementar.");
-    }
+  <script type="module" src="./js/register.js"></script>
+  <script type="module" src="./js/session.js"></script>
+  <script type="module">
+    import { manageSessionUI } from './js/session.js';
+    manageSessionUI(false);
   </script>
 </body>
 </html>

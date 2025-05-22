@@ -113,3 +113,7 @@ button[type="submit"]:hover {
 .registro-text a:hover {
   text-decoration: underline;
 }
+
+.hidden {
+  display: none !important;
+}

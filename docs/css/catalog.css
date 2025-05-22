@@ -55,7 +55,7 @@ main {
 .catalogo h1 {
   text-align: center;
   color: #66fcf1;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* Espacio extra debajo del título */
   font-size: 2rem;
 }
 
@@ -72,8 +72,8 @@ main {
   border-radius: 10px;
   width: 200px;
   box-shadow: 0 0 10px #45a29e44;
-  text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 2rem; /* Añadido para espaciado vertical */
 }
 
 .card:hover {
@@ -91,6 +91,11 @@ main {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   color: #c5c6c7;
+}
+
+.card h3 {
+  color: #c5c6c7;
+  font-size: 1.1rem;
 }
 
 .card p {
@@ -120,4 +125,8 @@ footer {
   background: #1f2833;
   color: #45a29e;
   margin-top: 3rem;
+}
+
+.hidden {
+  display: none !important;
 }

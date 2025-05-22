@@ -1,20 +1,28 @@
-import { checkAuthRedirect } from './utils.js';
-checkAuthRedirect();
+// js/catalog.js
+import { supabase } from './supabase.js';
 
-async function loadProducts() {
-  const { data: products, error } = await supabase.from('products').select('*');
-  if (error) return console.error('Error cargando productos:', error.message);
+document.addEventListener('DOMContentLoaded', async () => {
+  const { data: productos, error } = await supabase
+    .from('products')
+    .select('*');
 
-  const container = document.getElementById('product-list');
+  if (error) {
+    console.error('Error al obtener productos:', error);
+    return;
+  }
+
+  const container = document.getElementById('productos-container');
   container.innerHTML = '';
-  products.forEach(product => {
-    container.innerHTML += `
-      <div class="product">
-        <h3>${product.name}</h3>
-        <p>$${product.price}</p>
-        <button onclick="addToCart(${product.id})">Agregar</button>
-      </div>
+
+  productos.forEach(producto => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${producto.image_url}" alt="${producto.name}" />
+      <h3>${producto.name}</h3>
+      <p>${producto.description}</p>
+      <p><strong>Precio:</strong> $${producto.price}</p>
     `;
+    container.appendChild(card);
   });
-}
-loadProducts();
+});
