@@ -6,48 +6,28 @@
   <title>Carrito - VesselGames</title>
   <link rel="stylesheet" href="./css/carrito.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="./assets/images/Logo DiegoRam.png" alt="VesselGames Logo" />
     </div>
-<nav id="nav-menu">
-  <a href="index.html">Inicio</a>
-  <a href="login.html" id="login-link">Iniciar Sesión</a>
-  <a href="register.html" id="register-link">Registrarse</a>
-  <a href="#" id="logout-btn" class="hidden">Cerrar Sesión</a>
-</nav>
-
+    <nav id="nav-menu">
+      <a href="index.html">Inicio</a>
+      <a href="login.html" id="login-link">Iniciar Sesión</a>
+      <a href="register.html" id="register-link">Registrarse</a>
+      <a href="#" id="logout-btn" class="hidden">Cerrar Sesión</a>
+    </nav>
   </header>
 
   <main>
     <section class="carrito">
       <h1>Tu Carrito</h1>
-      <div class="carrito-items">
-        <div class="item">
-          <img src="https://via.placeholder.com/100x130" alt="Cyber Legends">
-          <div class="info">
-            <h2>Cyber Legends</h2>
-            <p>$59.99</p>
-            <button class="remove">Eliminar</button>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://via.placeholder.com/100x130" alt="Quantum Drift">
-          <div class="info">
-            <h2>Quantum Drift</h2>
-            <p>$49.99</p>
-            <button class="remove">Eliminar</button>
-          </div>
-        </div>
-        <!-- Puedes añadir más productos aquí -->
-      </div>
+      <div class="carrito-items" id="carrito-items"></div>
 
       <div class="resumen">
-        <p>Total: <span>$109.98</span></p>
-        <button class="comprar">Finalizar Compra</button>
+        <p>Total: <span id="total">$0.00</span></p>
+        <button class="comprar" id="finalizar-compra">Finalizar Compra</button>
       </div>
     </section>
   </main>
@@ -60,5 +40,6 @@
   import { manageSessionUI } from './js/session.js';
   manageSessionUI(true);
 </script>
+<script type="module" src="./js/cart.js"></script>
 </body>
 </html>

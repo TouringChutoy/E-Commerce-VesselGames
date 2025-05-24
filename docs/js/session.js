@@ -1,5 +1,10 @@
 import { supabase } from './supabase.js';
 
+export async function getUser() {
+  const { data: { user } } = await supabase.auth.getUser();
+  return user;
+}
+
 // Controlar visibilidad del menú de sesión en todas las páginas
 export async function manageSessionUI(redirectIfNotLoggedIn = false) {
   const { data } = await supabase.auth.getSession();

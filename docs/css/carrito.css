@@ -1,4 +1,3 @@
-/* Estilo minimalista y futurista para carrito */
 * {
   margin: 0;
   padding: 0;
@@ -27,23 +26,16 @@ header {
 
 nav {
   display: flex;
-  align-items: center;
   gap: 1.5rem;
 }
 
 nav a {
   color: #c5c6c7;
   text-decoration: none;
-  font-size: 0.95rem;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #66fcf1;
-}
-
-.carrito-icon i {
-  font-size: 1.2rem;
   color: #66fcf1;
 }
 
@@ -52,80 +44,58 @@ main {
 }
 
 .carrito h1 {
-  text-align: center;
   color: #66fcf1;
+  text-align: center;
   margin-bottom: 2rem;
-  font-size: 2rem;
 }
 
-.carrito-items {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.item {
+.carrito-items .item {
   display: flex;
   align-items: center;
   background: #1f2833;
-  border-radius: 10px;
+  margin-bottom: 1rem;
   padding: 1rem;
-  box-shadow: 0 0 10px #45a29e33;
+  border-radius: 10px;
+  gap: 1rem;
+  box-shadow: 0 0 10px #45a29e44;
 }
 
-.item img {
+.carrito-items .item img {
   width: 100px;
+  height: 130px;
+  object-fit: cover;
   border-radius: 5px;
-  margin-right: 1rem;
 }
 
-.item .info {
+.carrito-items .info {
   flex-grow: 1;
 }
 
-.item h2 {
-  color: #c5c6c7;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.item p {
-  color: #66fcf1;
-  margin-bottom: 0.5rem;
-}
-
-.remove {
-  background: #c0392b;
+.carrito-items .remove {
+  background: #ff4c4c;
   color: #fff;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s;
-}
-
-.remove:hover {
-  background: #e74c3c;
 }
 
 .resumen {
+  text-align: right;
   margin-top: 2rem;
-  text-align: center;
 }
 
 .resumen p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #66fcf1;
-  margin-bottom: 1rem;
 }
 
 .comprar {
+  margin-top: 1rem;
   background: #45a29e;
   color: #0b0c10;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 5px;
   font-weight: bold;
