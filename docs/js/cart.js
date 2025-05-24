@@ -1,3 +1,4 @@
+// js/cart.js
 import { supabase } from './supabase.js';
 import { getUser } from './session.js';
 
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // 🔍 1. Buscar el carrito del usuario
+  // Obtener el carrito del usuario
   const { data: cart, error: cartError } = await supabase
     .from('carts')
     .select('id')
@@ -21,19 +22,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // 🛒 2. Buscar ítems del carrito con JOIN a products
+  // Obtener ítems del carrito con JOIN a products
   const { data: items, error } = await supabase
     .from('cart_items')
     .select(`
       id,
       quantity,
+      product_id,
       products:product_id (
         name,
         price,
         image_url
       )
     `)
-    .eq('cart_id', cart.id); // ✅ usar el id del carrito
+    .eq('cart_id', cart.id);
 
   if (error) {
     console.error('Error al cargar carrito:', error);
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.querySelector('.resumen span').textContent = `$${total.toFixed(2)}`;
 
-  // 🗑 Eliminar producto del carrito
+  // Eliminar producto del carrito
   container.addEventListener('click', async (e) => {
     if (e.target.classList.contains('remove')) {
       const id = e.target.dataset.id;
@@ -78,8 +80,52 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  document.querySelector('.comprar').addEventListener('click', () => {
+  // Finalizar compra
+  document.querySelector('.comprar').addEventListener('click', async () => {
+    if (items.length === 0) {
+      alert('Tu carrito está vacío');
+      return;
+    }
+
+    const { data: order, error: orderError } = await supabase
+      .from('orders')
+      .insert([{
+        user_id: user.id,
+        total: total,
+        created_at: new Date().toISOString()
+      }])
+      .select()
+      .single();
+
+    if (orderError) {
+      console.error('Error al crear orden:', orderError);
+      alert('No se pudo crear la orden');
+      return;
+    }
+
+    // Insertar los productos en order_items
+    const orderItems = items.map(item => ({
+      order_id: order.id,
+      product_id: item.product_id,
+      quantity: item.quantity,
+      price: item.products.price
+    }));
+
+    const { error: itemsError } = await supabase.from('order_items').insert(orderItems);
+
+    if (itemsError) {
+      console.error('Error al insertar order_items:', itemsError);
+      alert('No se pudo agregar productos a la orden');
+      return;
+    }
+
+    // Limpiar carrito
+    const { error: deleteError } = await supabase.from('cart_items').delete().eq('cart_id', cart.id);
+    if (deleteError) {
+      console.error('Error al vaciar carrito:', deleteError);
+    }
+
     alert('¡Gracias por tu compra!');
-    // Aquí podrías vaciar el carrito desde Supabase si lo deseas
+    location.reload();
   });
 });
