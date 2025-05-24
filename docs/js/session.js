@@ -13,15 +13,18 @@ export async function manageSessionUI(redirectIfNotLoggedIn = false) {
   const loginLink = document.getElementById('login-link');
   const registerLink = document.getElementById('register-link');
   const logoutBtn = document.getElementById('logout-btn');
+  const profileLink = document.getElementById('profile-link');
 
   if (session) {
     loginLink?.classList.add('hidden');
     registerLink?.classList.add('hidden');
     logoutBtn?.classList.remove('hidden');
+    profileLink?.classList.remove('hidden');
   } else {
     loginLink?.classList.remove('hidden');
     registerLink?.classList.remove('hidden');
     logoutBtn?.classList.add('hidden');
+    profileLink?.classList.add('hidden');
 
     if (redirectIfNotLoggedIn) {
       window.location.href = 'login.html';

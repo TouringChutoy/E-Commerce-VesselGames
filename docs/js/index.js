@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   const { data } = await supabase.auth.getSession();
   const session = data.session;
 
+  const profileLink = document.getElementById('profile-link');
+
+if (session) {
+  loginLink.style.display = 'none';
+  registerLink.style.display = 'none';
+  logoutBtn.style.display = 'inline';
+  profileLink.style.display = 'inline';
+} else {
+  loginLink.style.display = 'inline';
+  registerLink.style.display = 'inline';
+  logoutBtn.style.display = 'none';
+  profileLink.style.display = 'none';
+}
+
   // Mostrar / ocultar elementos según sesión
   if (session) {
     loginLink.style.display = 'none';

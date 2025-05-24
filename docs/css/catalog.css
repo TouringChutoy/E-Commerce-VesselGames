@@ -32,7 +32,7 @@ nav {
   gap: 1.5rem;
 }
 
-nav a {
+nav a, #logout-btn, #profile-link, #home-link {
   color: #c5c6c7;
   text-decoration: none;
   transition: color 0.3s;
@@ -129,4 +129,13 @@ footer {
 
 .hidden {
   display: none !important;
+}
+
+#home-link {
+  margin-right: auto; /* Lo separa del logo/título */
+}
+
+#home-link:hover {
+  color: #66fcf1;
+  text-shadow: 0 0 5px rgba(102, 252, 241, 0.5);
 }
