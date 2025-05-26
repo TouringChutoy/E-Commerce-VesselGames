@@ -1,6 +1,8 @@
 import { supabase } from './supabase.js';
 import { getUser } from './session.js';
 
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_dRm14n7ZY7xKgRW69fc7u00"
+
 document.addEventListener('DOMContentLoaded', async () => {
   const user = await getUser();
   if (!user) {
@@ -187,6 +189,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (clearError) {
       console.error(clearError);
     }
+
+    window.location.href = STRIPE_PAYMENT_LINK;
 
     alert('¡Gracias por tu compra!');
     location.reload();
