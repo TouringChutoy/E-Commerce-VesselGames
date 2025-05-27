@@ -24,11 +24,3 @@ export async function login(event) {
     alert('Error en el inicio de sesión: ' + error.message);
   }
 }
-
-export async function loginConGoogle() {
-  try {
-    await supabase.auth.signInWithOAuth({ provider: 'google' });
-  } catch (error) {
-    alert('Error con el inicio de sesión Google: ' + error.message);
-  }
-}

@@ -22,12 +22,6 @@
         </form>
 
         <div class="separador">o</div>
-
-        <button class="google-btn" onclick="loginConGoogle()">
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google icon" />
-          Iniciar con Google
-        </button>
-
         <p class="registro-text">¿No tienes cuenta? <a href="./register.html">Regístrate</a></p>
       </div>
     </section>
@@ -36,10 +30,9 @@
 <script type="module">
   import { redirectIfLoggedIn } from './js/protectLogin.js';
   import { manageSessionUI } from './js/session.js';
-  import { login, loginConGoogle } from './js/login.js';
+  import { login } from './js/login.js';
 
   window.login = login;
-  window.loginConGoogle = loginConGoogle;
 
   manageSessionUI(false);
   redirectIfLoggedIn();

@@ -28,11 +28,3 @@ formRegister?.addEventListener('submit', async (e) => {
     alert('Error en el registro: ' + error.message);
   }
 });
-
-googleBtn?.addEventListener('click', async () => {
-  try {
-    await supabase.auth.signInWithOAuth({ provider: 'google' });
-  } catch (error) {
-    alert('Error con el inicio de sesión Google: ' + error.message);
-  }
-});
